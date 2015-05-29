@@ -50,7 +50,10 @@ public class GuessGame extends JFrame {
 		
 		//Create panel p1 to display the score
 		JPanel p1 = new JPanel();
-		jlbl1 = new JLabel("Score");
+		jlbl1 = new JLabel("Score:");
+		Font font = new Font(Font.DIALOG_INPUT, Font.BOLD, 40);
+		jlbl1.setFont(font);
+		jlbl1.setForeground(Color.BLUE);
 		p1.add(jlbl1);
 		
 		//Create panel p2 to display the picture
@@ -62,7 +65,7 @@ public class GuessGame extends JFrame {
 		
 		//Create panel p3 to put the six button
 		JPanel p3 = new JPanel();
-		p3.setLayout(new GridLayout(1,6,5,5));
+		p3.setLayout(new GridLayout(1,6,15,15));
 		p3.add(new JButton(baseball));
 		p3.add(new JButton(basketball));
 		p3.add(new JButton(tennis));
