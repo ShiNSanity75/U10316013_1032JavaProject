@@ -5,7 +5,14 @@ import javax.swing.*;
 public class GuessGame extends JFrame {
 
 	//Create an array to store the 100 picture
-	ImageIcon[] picture = new ImageIcon[100];
+	private ImageIcon[] picture = new ImageIcon[100];
+	
+	private ImageIcon baseball = new ImageIcon("icon/baseball.PNG");
+	private ImageIcon basketball = new ImageIcon("icon/basketball.PNG");
+	private ImageIcon tennis = new ImageIcon("icon/tennis.PNG");
+	private ImageIcon soccer = new ImageIcon("icon/soccer.PNG");
+	private ImageIcon music = new ImageIcon("icon/music.PNG");
+	private ImageIcon video = new ImageIcon("icon/video.PNG");
 	
 	//Create a label to put picture
 	JLabel jlbl = new JLabel();
@@ -46,9 +53,19 @@ public class GuessGame extends JFrame {
 		jlbl.setHorizontalTextPosition(JLabel.CENTER);
 		
 		p1.add(jlbl);
-			
-	
+		
+		//Create panel p1 to put the six button
+		JPanel p2 = new JPanel();
+		p2.setLayout(new GridLayout(1,6,5,5));
+		p2.add(new JButton(baseball));
+		p2.add(new JButton(basketball));
+		p2.add(new JButton(tennis));
+		p2.add(new JButton(soccer));
+		p2.add(new JButton(music));
+		p2.add(new JButton(video));
+		
 		add(p1);
+		add(p2,BorderLayout.SOUTH);
 	}
 
 	/**Main Method*/
