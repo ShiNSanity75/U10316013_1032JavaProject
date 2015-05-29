@@ -16,6 +16,7 @@ public class GuessGame extends JFrame {
 	
 	//Create a label to put picture
 	JLabel jlbl = new JLabel();
+	JLabel jlbl1 = new JLabel();
 	
 	//Create an array to store the random list
 	int num[] = new int[100];
@@ -47,25 +48,31 @@ public class GuessGame extends JFrame {
 			}
 		}
 		
-		//Create panel p1 to display the picture
+		//Create panel p1 to display the score
 		JPanel p1 = new JPanel();
+		jlbl1 = new JLabel("Score");
+		p1.add(jlbl1);
+		
+		//Create panel p2 to display the picture
+		JPanel p2 = new JPanel();
 		jlbl = new JLabel(picture[num[30]]);
 		jlbl.setHorizontalTextPosition(JLabel.CENTER);
 		
-		p1.add(jlbl);
+		p2.add(jlbl);
 		
-		//Create panel p1 to put the six button
-		JPanel p2 = new JPanel();
-		p2.setLayout(new GridLayout(1,6,5,5));
-		p2.add(new JButton(baseball));
-		p2.add(new JButton(basketball));
-		p2.add(new JButton(tennis));
-		p2.add(new JButton(soccer));
-		p2.add(new JButton(music));
-		p2.add(new JButton(video));
+		//Create panel p3 to put the six button
+		JPanel p3 = new JPanel();
+		p3.setLayout(new GridLayout(1,6,5,5));
+		p3.add(new JButton(baseball));
+		p3.add(new JButton(basketball));
+		p3.add(new JButton(tennis));
+		p3.add(new JButton(soccer));
+		p3.add(new JButton(music));
+		p3.add(new JButton(video));
 		
-		add(p1);
-		add(p2,BorderLayout.SOUTH);
+		add(p1,BorderLayout.NORTH);
+		add(p2);
+		add(p3,BorderLayout.SOUTH);
 	}
 
 	/**Main Method*/
