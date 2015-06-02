@@ -23,13 +23,12 @@ public class GuessGame extends JFrame {
 	JButton videoB = new JButton(video);
 	JButton musicB = new JButton(music);
 
-	
+			
 	//Create a label to display the score
 	JLabel score = new JLabel();
 	
 	//Create a label to put picture
 	JLabel jlbl = new JLabel();
-	
 	
 	//Create an array to store the random list
 	int num[] = new int[100];
@@ -64,6 +63,7 @@ public class GuessGame extends JFrame {
 			}
 		}
 		
+
 		//Create panel p1 to display the score
 		JPanel p1 = new JPanel();
 		score = new JLabel("Score: " + userScore);
@@ -107,6 +107,7 @@ public class GuessGame extends JFrame {
 			if(num[que] >= 0 && num[que] <= 19){
 				if(e.getSource() == baseballB){
 					userScore += 1;
+					score.setText("Score: " + userScore);
 					que += 1;
 					jlbl.setIcon(picture[num[que]]);
 					
