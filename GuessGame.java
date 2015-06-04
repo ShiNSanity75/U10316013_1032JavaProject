@@ -103,213 +103,52 @@ public class GuessGame extends JFrame {
 
 	private class Button implements ActionListener {
 		@Override
-		public void actionPerformed(ActionEvent e) {
-			if(num[que] >= 0 && num[que] <= 19){
-				if(e.getSource() == baseballB){
-					userScore += 1;
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == basketballB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == tennisB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == soccerB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == videoB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == musicB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-				}
-					
-			}
+			public void actionPerformed(ActionEvent e) {
 			
-			if(num[que] >= 20 && num[que] <= 39){
-				if(e.getSource() == baseballB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == basketballB){
-					userScore += 1;
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == tennisB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == soccerB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == videoB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == musicB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-				}
-			}
 			
-			if(num[que] >= 40 && num[que] <= 49){
-				if(e.getSource() == baseballB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
 				
-				}else if(e.getSource() == basketballB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-				
-				}else if(e.getSource() == tennisB){
-					userScore += 1;
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-				
-				}else if(e.getSource() == soccerB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-				
-				}else if(e.getSource() == videoB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-				
-				}else if(e.getSource() == musicB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
+				if(num[que] >= 0 && num[que] <= 19){
+					if(e.getSource() == baseballB){
+						userScore += 1;	
+					}		
 				}
-			}
 			
-			if(num[que] >= 50 && num[que] <= 59){
-				if(e.getSource() == baseballB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == basketballB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == tennisB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == soccerB){
-					userScore += 1;
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == videoB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == musicB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
+				if(num[que] >= 20 && num[que] <= 39){
+					if(e.getSource() == basketballB){
+						userScore += 1;
+					}
 				}
-			}
 			
-			if(num[que] >= 60 && num[que] <= 79){
-				if(e.getSource() == baseballB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == basketballB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == tennisB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == soccerB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == videoB){
-					userScore += 1;
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == musicB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
+				if(num[que] >= 40 && num[que] <= 49){
+					if(e.getSource() == tennisB){
+						userScore += 1;
+					}
 				}
-			}
 			
-			if(num[que] >= 80 && num[que] <= 99){
-				if(e.getSource() == baseballB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == basketballB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == tennisB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == soccerB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == videoB){
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
-					
-				}else if(e.getSource() == musicB){
-					userScore += 1;
-					que += 1;
-					score.setText("Quiz " + que + "    Score " + userScore);
-					jlbl.setIcon(picture[num[que]]);
+				if(num[que] >= 50 && num[que] <= 59){
+					if(e.getSource() == soccerB){
+						userScore += 1;
+					}
 				}
+			
+				if(num[que] >= 60 && num[que] <= 79){
+					if(e.getSource() == videoB){
+						userScore += 1;
+					}
+				}
+			
+				if(num[que] >= 80 && num[que] <= 99){
+					if(e.getSource() == musicB){
+						userScore += 1;
+					}
+				}
+				
+				que++;
+				score.setText("Quiz " + que + "    Score " + userScore);
+				jlbl.setIcon(picture[num[que]]);
 			}
-
-		}
+		
+		
 	}
 	
 	/**Main Method*/
