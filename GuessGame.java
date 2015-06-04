@@ -106,39 +106,43 @@ public class GuessGame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			
 			
-				
-				if(num[que] >= 0 && num[que] <= 19){
-					if(e.getSource() == baseballB){
+				if(e.getSource() == baseballB){
+					if(num[que] >= 0 && num[que] <= 19){
 						userScore += 1;	
 					}		
 				}
 			
-				if(num[que] >= 20 && num[que] <= 39){
-					if(e.getSource() == basketballB){
+				
+				if(e.getSource() == basketballB){
+					if(num[que] >= 20 && num[que] <= 39){
 						userScore += 1;
 					}
 				}
 			
-				if(num[que] >= 40 && num[que] <= 49){
-					if(e.getSource() == tennisB){
+				
+				if(e.getSource() == tennisB){
+					if(num[que] >= 40 && num[que] <= 49){
 						userScore += 1;
 					}
 				}
 			
-				if(num[que] >= 50 && num[que] <= 59){
-					if(e.getSource() == soccerB){
+				
+				if(e.getSource() == soccerB){
+					if(num[que] >= 50 && num[que] <= 59){
 						userScore += 1;
 					}
 				}
 			
-				if(num[que] >= 60 && num[que] <= 79){
-					if(e.getSource() == videoB){
+			
+				if(e.getSource() == videoB){
+					if(num[que] >= 60 && num[que] <= 79){
 						userScore += 1;
 					}
 				}
 			
-				if(num[que] >= 80 && num[que] <= 99){
-					if(e.getSource() == musicB){
+				
+				if(e.getSource() == musicB){
+					if(num[que] >= 80 && num[que] <= 99){
 						userScore += 1;
 					}
 				}
@@ -161,4 +165,5 @@ public class GuessGame extends JFrame {
 		frame.setVisible(true); //Display the frame
 	}
 }
+
 
