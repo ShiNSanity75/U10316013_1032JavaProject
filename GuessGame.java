@@ -30,12 +30,13 @@ public class GuessGame extends JFrame {
 	//Create a label to put picture
 	JLabel jlbl = new JLabel();
 	
-	//Create an array to store the random list
-	int num[] = new int[100];
+	
+	int num[] = new int[100]; //Create an array to store the random list
 	boolean isSame;
 	int i;
 	int userScore = 0;
 	int k; //the number of the pictures
+	int quiz[] = new int[30]; //Create an array to store the questions
 	int que = 1; //the number of the questions
 	
 	
@@ -63,6 +64,10 @@ public class GuessGame extends JFrame {
 			}
 		}
 		
+		//Create the questions list
+		for(i = 0; i < 30; i++) { 
+			quiz[i] = num[i];
+		}
 
 		//Create panel p1 to display the score
 		JPanel p1 = new JPanel();
@@ -74,7 +79,7 @@ public class GuessGame extends JFrame {
 		
 		//Create panel p2 to display the picture
 		JPanel p2 = new JPanel();
-		jlbl = new JLabel(picture[num[que]]);
+		jlbl = new JLabel(picture[quiz[que - 1]]);
 		jlbl.setHorizontalTextPosition(JLabel.CENTER);
 		
 		p2.add(jlbl);
@@ -107,49 +112,54 @@ public class GuessGame extends JFrame {
 			
 			
 				if(e.getSource() == baseballB){
-					if(num[que] >= 0 && num[que] <= 19){
+					if(quiz[que - 1] >= 0 && quiz[que - 1] <= 19){
 						userScore += 1;	
 					}		
 				}
 			
 				
 				if(e.getSource() == basketballB){
-					if(num[que] >= 20 && num[que] <= 39){
+					if(quiz[que - 1] >= 20 && quiz[que - 1] <= 39){
 						userScore += 1;
 					}
 				}
 			
 				
 				if(e.getSource() == tennisB){
-					if(num[que] >= 40 && num[que] <= 49){
-						userScore += 1;
+					if(quiz[que - 1] >= 40 && quiz[que - 1] <= 49){
+						userScore += 1;						
 					}
 				}
 			
 				
 				if(e.getSource() == soccerB){
-					if(num[que] >= 50 && num[que] <= 59){
-						userScore += 1;
+					if(quiz[que - 1] >= 50 && quiz[que - 1] <= 59){
+						userScore += 1;						
 					}
 				}
 			
 			
 				if(e.getSource() == videoB){
-					if(num[que] >= 60 && num[que] <= 79){
-						userScore += 1;
+					if(quiz[que - 1] >= 60 && quiz[que - 1] <= 79){
+						userScore += 1;						
 					}
 				}
 			
 				
 				if(e.getSource() == musicB){
-					if(num[que] >= 80 && num[que] <= 99){
-						userScore += 1;
+					if(quiz[que - 1] >= 80 && quiz[que - 1] <= 99){
+						userScore += 1;						
 					}
 				}
 				
-				que++;
-				score.setText("Quiz " + que + "    Score " + userScore);
-				jlbl.setIcon(picture[num[que]]);
+				if(que < 30){
+					que++;
+					score.setText("Quiz " + que + "    Score " + userScore);
+					jlbl.setIcon(picture[quiz[que - 1]]);
+					
+				} else if (que == 30) {
+					score.setText("Quiz " + que + "    Score " + userScore);
+				}
 			}
 		
 		
@@ -165,5 +175,6 @@ public class GuessGame extends JFrame {
 		frame.setVisible(true); //Display the frame
 	}
 }
+
 
 
