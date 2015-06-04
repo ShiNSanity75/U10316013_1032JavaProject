@@ -93,11 +93,20 @@ public class GuessGame extends JFrame {
 		p3.add(soccerB);
 		p3.add(videoB);
 		p3.add(musicB);
-
 		
-		add(p1,BorderLayout.NORTH);
-		add(p2);
-		add(p3,BorderLayout.SOUTH);
+		//Create panel p4 to put main menu
+		JPanel p4 = new JPanel();
+		JLabel title = new JLabel();
+		title = new JLabel("名人領域猜一猜");
+		Font fontMain = new Font("華康細圓體", Font.BOLD, 50);
+		title.setFont(fontMain);
+		title.setForeground(Color.BLUE);
+		p4.add(title);
+		
+		//add(p1,BorderLayout.NORTH);
+		//add(p2);
+		//add(p3,BorderLayout.SOUTH);
+		add(p4);
 		baseballB.addActionListener(new Button());
 		basketballB.addActionListener(new Button());
 		tennisB.addActionListener(new Button());
@@ -175,6 +184,3 @@ public class GuessGame extends JFrame {
 		frame.setVisible(true); //Display the frame
 	}
 }
-
-
-
