@@ -22,7 +22,9 @@ public class GuessGame extends JFrame {
 	JButton soccerB = new JButton(soccer);
 	JButton videoB = new JButton(video);
 	JButton musicB = new JButton(music);
-
+	JButton start = new JButton("開始遊戲");
+	JButton information = new JButton("遊戲規則");
+	
 			
 	//Create a label to display the score
 	JLabel score = new JLabel();
@@ -39,6 +41,11 @@ public class GuessGame extends JFrame {
 	int quiz[] = new int[30]; //Create an array to store the questions
 	int que = 1; //the number of the questions
 	
+	JPanel p1 = new JPanel();
+	JPanel p2 = new JPanel();
+	JPanel p3 = new JPanel();
+	JPanel p4 = new JPanel();
+	JPanel p5 = new JPanel();
 	
 	public GuessGame() {
 		
@@ -70,7 +77,7 @@ public class GuessGame extends JFrame {
 		}
 
 		//Create panel p1 to display the score
-		JPanel p1 = new JPanel();
+		//JPanel p1 = new JPanel();
 		score = new JLabel("Quiz " + que + "    Score " + userScore);
 		Font font = new Font(Font.DIALOG_INPUT, Font.BOLD, 40);
 		score.setFont(font);
@@ -78,14 +85,14 @@ public class GuessGame extends JFrame {
 		p1.add(score);
 		
 		//Create panel p2 to display the picture
-		JPanel p2 = new JPanel();
+		//JPanel p2 = new JPanel();
 		jlbl = new JLabel(picture[quiz[que - 1]]);
 		jlbl.setHorizontalTextPosition(JLabel.CENTER);
 		
 		p2.add(jlbl);
 		
 		//Create panel p3 to put the six button
-		JPanel p3 = new JPanel();
+		
 		p3.setLayout(new GridLayout(1,6,15,15));
 		p3.add(baseballB);
 		p3.add(basketballB);
@@ -95,7 +102,7 @@ public class GuessGame extends JFrame {
 		p3.add(musicB);
 		
 		//Create panel p4 to put main menu
-		JPanel p4 = new JPanel();
+		//JPanel p4 = new JPanel();
 		JLabel title = new JLabel();
 		title = new JLabel("名人領域猜一猜");
 		Font fontMain = new Font("華康細圓體", Font.BOLD, 50);
@@ -103,19 +110,43 @@ public class GuessGame extends JFrame {
 		title.setForeground(Color.BLUE);
 		p4.add(title);
 		
-		//add(p1,BorderLayout.NORTH);
-		//add(p2);
-		//add(p3,BorderLayout.SOUTH);
-		add(p4);
-		baseballB.addActionListener(new Button());
-		basketballB.addActionListener(new Button());
-		tennisB.addActionListener(new Button());
-		soccerB.addActionListener(new Button());
-		videoB.addActionListener(new Button());
-		musicB.addActionListener(new Button());
+		//Create panel p5 to put the button on main menu
+		
+		Font fontButton = new Font("華康細圓體", Font.BOLD, 20);
+		start.setFont(fontButton);
+		information.setFont(fontButton);
+		p5.add(start,new FlowLayout(FlowLayout.CENTER));
+		p5.add(information,new FlowLayout(FlowLayout.CENTER));
+		
+		add(p4,BorderLayout.NORTH);
+		add(p5,BorderLayout.SOUTH);
+		
+		start.addActionListener(new ButtonStart());
+		baseballB.addActionListener(new ButtonGames());
+		basketballB.addActionListener(new ButtonGames());
+		tennisB.addActionListener(new ButtonGames());
+		soccerB.addActionListener(new ButtonGames());
+		videoB.addActionListener(new ButtonGames());
+		musicB.addActionListener(new ButtonGames());
+		
 	}
 
-	private class Button implements ActionListener {
+	private class ButtonStart implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+		
+			if(e.getSource() == start){
+				
+				p4.setVisible(false);
+				p5.setVisible(false);
+				add(p1,BorderLayout.NORTH);
+				add(p2);
+				add(p3,BorderLayout.SOUTH);
+			}
+		}
+	}
+	
+	private class ButtonGames implements ActionListener {
 		@Override
 			public void actionPerformed(ActionEvent e) {
 			
@@ -168,6 +199,7 @@ public class GuessGame extends JFrame {
 					
 				} else if (que == 30) {
 					score.setText("Quiz " + que + "    Score " + userScore);
+					que++;
 				}
 			}
 		
