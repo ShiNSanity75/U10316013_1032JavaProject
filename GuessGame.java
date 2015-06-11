@@ -15,6 +15,7 @@ public class GuessGame extends JFrame {
 	private ImageIcon soccer = new ImageIcon("icon/soccer.PNG");
 	private ImageIcon video = new ImageIcon("icon/video.PNG");
 	private ImageIcon music = new ImageIcon("icon/music.PNG");
+	private ImageIcon result = new ImageIcon("icon/result.PNG");
 
 	
 	//Create buttons
@@ -56,6 +57,9 @@ public class GuessGame extends JFrame {
 	JPanel p7 = new JPanel();
 	JPanel p8 = new JPanel();
 	JPanel p9 = new JPanel();
+	JPanel p10 = new JPanel();
+	JPanel p11 = new JPanel();
+	JPanel p12 = new JPanel();
 	
 	public GuessGame() {
 		
@@ -87,8 +91,8 @@ public class GuessGame extends JFrame {
 		}
 
 		//Create panel p1 to display the score
-		score = new JLabel("Quiz " + que + "    Score " + userScore);
-		Font font = new Font(Font.DIALOG_INPUT, Font.BOLD, 40);
+		score = new JLabel("題目 " + que + "      得分 " + userScore);
+		Font font = new Font("華康童童體", Font.BOLD, 40);
 		score.setFont(font);
 		score.setForeground(Color.BLUE);
 		p1.add(score);
@@ -107,10 +111,10 @@ public class GuessGame extends JFrame {
 		p3.add(videoB);
 		p3.add(musicB);
 		
-		//Create panel p4 to put main menu
+		//Create panel p4 to put main menu title
 		JLabel title = new JLabel();
 		title = new JLabel("名人領域猜一猜");
-		Font fontMain = new Font("華康細圓體", Font.BOLD, 50);
+		Font fontMain = new Font("華康童童體", Font.BOLD, 60);
 		title.setFont(fontMain);
 		title.setForeground(Color.BLUE);
 		p4.add(title);
@@ -121,7 +125,7 @@ public class GuessGame extends JFrame {
 		p5.add(jlblMenu);
 		
 		//Create panel p6 to put the button on main menu		
-		Font fontButton = new Font("華康細圓體", Font.BOLD, 20);
+		Font fontButton = new Font("華康童童體", Font.BOLD, 30);
 		start.setFont(fontButton);
 		information.setFont(fontButton);
 		p6.add(start,new FlowLayout(FlowLayout.CENTER));
@@ -130,7 +134,7 @@ public class GuessGame extends JFrame {
 		//Create panel p7 to put main menu
 		JLabel titleRule = new JLabel();
 		titleRule = new JLabel("遊戲規則");
-		Font fontRule = new Font("華康細圓體", Font.BOLD, 50);
+		Font fontRule = new Font("華康童童體", Font.BOLD, 60);
 		titleRule.setFont(fontRule);
 		titleRule.setForeground(Color.BLUE);
 		p7.add(titleRule);
@@ -141,10 +145,23 @@ public class GuessGame extends JFrame {
 		p8.add(jlblInformation);
 		
 		//Create panel p9 to put the button on information	
-		Font fontButton2 = new Font("華康細圓體", Font.BOLD, 20);
+		Font fontButton2 = new Font("華康童童體", Font.BOLD, 30);
 		start2.setFont(fontButton2);
 		p9.add(start2,new FlowLayout(FlowLayout.CENTER));
 		
+		
+		//Create panel p10 to put the title of result
+		JLabel titleR = new JLabel();
+		titleR = new JLabel("遊戲結果");
+		Font fontResult = new Font("華康童童體", Font.BOLD, 60);
+		titleR.setFont(fontResult);
+		titleR.setForeground(Color.BLUE);
+		p10.add(titleR);
+		
+		//Create panel p12 to put the result information
+		JLabel resultP = new JLabel(result);
+		resultP.setHorizontalTextPosition(JLabel.CENTER);	
+		p12.add(resultP);
 		
 		add(p4,BorderLayout.NORTH);
 		add(p5);
@@ -159,7 +176,7 @@ public class GuessGame extends JFrame {
 		soccerB.addActionListener(new ButtonGames());
 		videoB.addActionListener(new ButtonGames());
 		musicB.addActionListener(new ButtonGames());
-		
+				
 	}
 
 	private class ButtonStart implements ActionListener {
@@ -262,12 +279,28 @@ public class GuessGame extends JFrame {
 				
 				if(que < 30){
 					que++;
-					score.setText("Quiz " + que + "    Score " + userScore);
+					score.setText("題目 " + que + "      得分 " + userScore);
 					jlblGame.setIcon(picture[quiz[que - 1]]);
 					
 				} else if (que == 30) {
-					score.setText("Quiz " + que + "    Score " + userScore);
+					score.setText("題目 " + que + "      得分 " + userScore);
 					que++;
+					
+				}
+				
+				if(que > 30) {
+					p1.setVisible(false);
+					p2.setVisible(false);
+					p3.setVisible(false);
+					add(p10,BorderLayout.NORTH);
+					//Create panel p11 to display the score
+					JLabel scoreR = new JLabel("恭喜答對" + userScore + "題");
+					Font fontScore = new Font("華康童童體", Font.BOLD, 50);
+					scoreR.setFont(fontScore);
+					scoreR.setForeground(Color.RED);
+					p11.add(scoreR);
+					add(p11);
+					add(p12,BorderLayout.SOUTH);
 				}
 			}
 		
