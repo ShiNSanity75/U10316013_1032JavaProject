@@ -21,6 +21,9 @@ public class GuessGame extends JFrame {
 	//Create buttons
 	JButton start = new JButton("開始遊戲");
 	JButton start2 = new JButton("開始遊戲");
+	JButton start3 = new JButton("再玩一次");
+	JButton scoreB = new JButton("我的成績");
+	JButton returnB = new JButton("返回");
 	JButton information = new JButton("遊戲規則");
 	JButton baseballB = new JButton(baseball);
 	JButton basketballB = new JButton(basketball);
@@ -37,6 +40,7 @@ public class GuessGame extends JFrame {
 	JLabel jlblMenu = new JLabel();
 	JLabel jlblGame = new JLabel();
 	JLabel jlblInformation = new JLabel();
+	JLabel photo = new JLabel();
 
 	
 	
@@ -57,9 +61,9 @@ public class GuessGame extends JFrame {
 	JPanel p7 = new JPanel();
 	JPanel p8 = new JPanel();
 	JPanel p9 = new JPanel();
-	JPanel p10 = new JPanel();
-	JPanel p11 = new JPanel();
 	JPanel p12 = new JPanel();
+	JPanel p13 = new JPanel();
+	JPanel p14 = new JPanel();
 	
 	public GuessGame() {
 		
@@ -149,20 +153,22 @@ public class GuessGame extends JFrame {
 		start2.setFont(fontButton2);
 		p9.add(start2,new FlowLayout(FlowLayout.CENTER));
 		
-		
-		//Create panel p10 to put the title of result
-		JLabel titleR = new JLabel();
-		titleR = new JLabel("遊戲結果");
-		Font fontResult = new Font("華康童童體", Font.BOLD, 60);
-		titleR.setFont(fontResult);
-		titleR.setForeground(Color.BLUE);
-		p10.add(titleR);
-		
 		//Create panel p12 to put the result information
 		JLabel resultP = new JLabel(result);
 		resultP.setHorizontalTextPosition(JLabel.CENTER);	
 		p12.add(resultP);
 		
+		//Create panel p13 to put the button on result	
+		Font fontstart3 = new Font("華康童童體", Font.BOLD, 30);
+		start3.setFont(fontstart3);
+		scoreB.setFont(fontstart3);
+		p13.add(scoreB,new FlowLayout(FlowLayout.CENTER));
+		p13.add(start3,new FlowLayout(FlowLayout.CENTER));
+		
+		//Create panel p14 to put the button on score page
+		Font fontReturnB = new Font("華康童童體", Font.BOLD, 30);
+		returnB.setFont(fontReturnB);
+		p14.add(returnB,new FlowLayout(FlowLayout.CENTER));
 		
 		add(p4,BorderLayout.NORTH);
 		add(p5);
@@ -170,6 +176,7 @@ public class GuessGame extends JFrame {
 		
 		start.addActionListener(new ButtonStart());
 		start2.addActionListener(new ButtonStart2());
+		start3.addActionListener(new ButtonStart3());
 		information.addActionListener(new ButtonInformation());
 		baseballB.addActionListener(new ButtonGames());
 		basketballB.addActionListener(new ButtonGames());
@@ -177,8 +184,11 @@ public class GuessGame extends JFrame {
 		soccerB.addActionListener(new ButtonGames());
 		videoB.addActionListener(new ButtonGames());
 		musicB.addActionListener(new ButtonGames());
+		scoreB.addActionListener(new ButtonScoreB());
+		returnB.addActionListener(new ButtonReturnB());
 				
 	}
+	
 
 	private class ButtonStart implements ActionListener {
 		@Override
@@ -214,7 +224,64 @@ public class GuessGame extends JFrame {
 		}
 	}
 	
-		private class ButtonInformation implements ActionListener {
+	private class ButtonStart3 implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+		
+			if(e.getSource() == start3){
+				
+				//start the game again
+				p12.setVisible(false);
+				p13.setVisible(false);
+				
+				que = 1;
+				userScore = 0;
+				score.setText("題目 " + que + "      得分 " + userScore);
+				
+				
+				//Create an image icon from an icon file
+				for(k = 0; k < 100; k++) {
+					picture[k] = new ImageIcon("icon/"+(k+1)+".jpg");
+				} 
+				
+				//Create the random list
+				for(i = 0; i < 100; i++) { 
+					isSame = true;
+					
+					while(isSame){
+						isSame = false;
+						num[i] = (int)(Math.random() * 100);
+
+						for(int j = 0; j < i; j++) {
+							if(num[i] == num[j]) {
+								isSame = true;
+							}
+						}
+						
+					}
+				}
+				
+				//Create the questions list
+				for(i = 0; i < 30; i++) { 
+					quiz[i] = num[i];
+				}
+
+				
+				jlblGame.setIcon(picture[quiz[que - 1]]);
+				
+				add(p1,BorderLayout.NORTH);
+				add(p2);
+				add(p3,BorderLayout.SOUTH);
+				p1.setVisible(true);
+				p2.setVisible(true);
+				p3.setVisible(true);
+				
+				
+			}
+		}
+	}
+	
+	private class ButtonInformation implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 		
@@ -293,19 +360,53 @@ public class GuessGame extends JFrame {
 					p1.setVisible(false);
 					p2.setVisible(false);
 					p3.setVisible(false);
-					add(p10,BorderLayout.NORTH);
-					//Create panel p11 to display the score
-					JLabel scoreR = new JLabel("你答對" + userScore + "題");
-					Font fontScore = new Font("華康童童體", Font.BOLD, 50);
-					scoreR.setFont(fontScore);
-					scoreR.setForeground(Color.RED);
-					p11.add(scoreR);
-					add(p11);
-					add(p12,BorderLayout.SOUTH);
+					add(p12);
+					add(p13,BorderLayout.SOUTH);
+					p12.setVisible(true);
+					p13.setVisible(true);
+					
+					
 				}
 			}
 		
 		
+	}
+	
+	private class ButtonScoreB implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+		
+			if(e.getSource() == scoreB){
+				
+				//display the score
+				p12.setVisible(false);
+				p13.setVisible(false);
+				add(p1,BorderLayout.NORTH);
+				add(p2);
+				add(p14,BorderLayout.SOUTH);
+				p1.setVisible(true);
+				p2.setVisible(true);	
+				p14.setVisible(true);
+			}
+		}
+	}
+	
+	private class ButtonReturnB implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+		
+			if(e.getSource() == returnB){
+				
+				//display the score
+				p14.setVisible(false);
+				p1.setVisible(false);
+				p2.setVisible(false);
+				add(p12);
+				add(p13,BorderLayout.SOUTH);
+				p12.setVisible(true);
+				p13.setVisible(true);
+			}
+		}
 	}
 	
 	/**Main Method*/
