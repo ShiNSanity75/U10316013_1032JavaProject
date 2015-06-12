@@ -301,75 +301,72 @@ public class GuessGame extends JFrame {
 	
 	private class ButtonGames implements ActionListener {
 		@Override
-			public void actionPerformed(ActionEvent e) {
+		public void actionPerformed(ActionEvent e) {
 			
 			
-				if(e.getSource() == baseballB){
-					if(quiz[que - 1] >= 0 && quiz[que - 1] <= 19){
-						userScore += 1;	
-					}		
-				}
-			
-				
-				if(e.getSource() == basketballB){
-					if(quiz[que - 1] >= 20 && quiz[que - 1] <= 39){
-						userScore += 1;
-					}
-				}
+			if(e.getSource() == baseballB){
+				if(quiz[que - 1] >= 0 && quiz[que - 1] <= 19){
+					userScore += 1;	
+				}		
+			}
 			
 				
-				if(e.getSource() == tennisB){
-					if(quiz[que - 1] >= 40 && quiz[que - 1] <= 49){
-						userScore += 1;						
-					}
-				}
-			
-				
-				if(e.getSource() == soccerB){
-					if(quiz[que - 1] >= 50 && quiz[que - 1] <= 59){
-						userScore += 1;						
-					}
-				}
-			
-			
-				if(e.getSource() == videoB){
-					if(quiz[que - 1] >= 60 && quiz[que - 1] <= 79){
-						userScore += 1;						
-					}
-				}
-			
-				
-				if(e.getSource() == musicB){
-					if(quiz[que - 1] >= 80 && quiz[que - 1] <= 99){
-						userScore += 1;						
-					}
-				}
-				
-				if(que < 30){
-					que++;
-					score.setText("題目 " + que + "      得分 " + userScore);
-					jlblGame.setIcon(picture[quiz[que - 1]]);
-					
-				} else if (que == 30) {
-					score.setText("題目 " + que + "      得分 " + userScore);
-					que++;
-					
-				}
-				
-				if(que > 30) {
-					p1.setVisible(false);
-					p2.setVisible(false);
-					p3.setVisible(false);
-					add(p12);
-					add(p13,BorderLayout.SOUTH);
-					p12.setVisible(true);
-					p13.setVisible(true);
-					
-					
+			if(e.getSource() == basketballB){
+				if(quiz[que - 1] >= 20 && quiz[que - 1] <= 39){
+					userScore += 1;
 				}
 			}
-		
-		
+			
+			
+			if(e.getSource() == tennisB){
+				if(quiz[que - 1] >= 40 && quiz[que - 1] <= 49){
+					userScore += 1;						
+				}
+			}
+			
+				
+			if(e.getSource() == soccerB){
+				if(quiz[que - 1] >= 50 && quiz[que - 1] <= 59){
+					userScore += 1;						
+				}
+			}
+			
+			
+			if(e.getSource() == videoB){
+				if(quiz[que - 1] >= 60 && quiz[que - 1] <= 79){
+					userScore += 1;						
+				}
+			}
+			
+				
+			if(e.getSource() == musicB){
+				if(quiz[que - 1] >= 80 && quiz[que - 1] <= 99){
+					userScore += 1;						
+				}
+			}
+				
+			if(que < 30){
+				que++;
+				score.setText("題目 " + que + "      得分 " + userScore);
+				jlblGame.setIcon(picture[quiz[que - 1]]);
+					
+			} else if (que == 30) {
+				score.setText("題目 " + que + "      得分 " + userScore);
+				que++;
+				
+			}
+				
+			if(que > 30) {
+				p1.setVisible(false);
+				p2.setVisible(false);
+				p3.setVisible(false);
+				add(p12);
+				add(p13,BorderLayout.SOUTH);
+				p12.setVisible(true);
+				p13.setVisible(true);
+						
+			}
+		}		
 	}
 	
 	private class ButtonScoreB implements ActionListener {
@@ -419,3 +416,4 @@ public class GuessGame extends JFrame {
 		frame.setVisible(true); //Display the frame
 	}
 }
+
