@@ -163,6 +163,7 @@ public class GuessGame extends JFrame {
 		resultP.setHorizontalTextPosition(JLabel.CENTER);	
 		p12.add(resultP);
 		
+		
 		add(p4,BorderLayout.NORTH);
 		add(p5);
 		add(p6,BorderLayout.SOUTH);
@@ -213,7 +214,7 @@ public class GuessGame extends JFrame {
 		}
 	}
 	
-	private class ButtonInformation implements ActionListener {
+		private class ButtonInformation implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 		
@@ -294,7 +295,7 @@ public class GuessGame extends JFrame {
 					p3.setVisible(false);
 					add(p10,BorderLayout.NORTH);
 					//Create panel p11 to display the score
-					JLabel scoreR = new JLabel("恭喜答對" + userScore + "題");
+					JLabel scoreR = new JLabel("你答對" + userScore + "題");
 					Font fontScore = new Font("華康童童體", Font.BOLD, 50);
 					scoreR.setFont(fontScore);
 					scoreR.setForeground(Color.RED);
@@ -311,7 +312,7 @@ public class GuessGame extends JFrame {
 	public static void main (String[] args) {
 		GuessGame frame = new GuessGame(); //Create a frame
 		frame.setTitle("名人領域猜一猜"); //set the title of frame
-		frame.setSize(500, 600); //Set the size of frame
+		frame.setSize(500, 580); //Set the size of frame
 		frame.setLocationRelativeTo(null); //Center the frame
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true); //Display the frame
